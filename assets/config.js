@@ -1,0 +1,1 @@
+window.KJ_CONFIG={url:'',anonKey:''};
