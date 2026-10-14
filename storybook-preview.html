@@ -690,6 +690,7 @@
       <a href="everyday-kannada.html">Everyday Kannada</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
+	  <a href="index.html" data-real>Home - Plain Text</a>
     </nav>
   </header>
 
@@ -1769,7 +1770,7 @@ function showPage(name) {
   m.innerHTML = PAGES[name];
   var links = document.querySelectorAll(".sb-topnav a");
   for (var i = 0; i < links.length; i++) {
-    if (links[i].getAttribute("href") === name) links[i].setAttribute("aria-current", "page");
+    if (links[i].getAttribute("href") === name && !links[i].hasAttribute("data-real")) links[i].setAttribute("aria-current", "page");
     else links[i].removeAttribute("aria-current");
   }
   window.scrollTo(0, 0);
@@ -1779,7 +1780,7 @@ document.addEventListener("click", function (e) {
   var a = e.target.closest ? e.target.closest("a[href]") : null;
   if (!a) return;
   var h = a.getAttribute("href");
-  if (PAGES[h]) { e.preventDefault(); showPage(h); }
+    if (PAGES[h] && !a.hasAttribute("data-real")) { e.preventDefault(); showPage(h); }
 });
 showPage("index.html");
 </script>
